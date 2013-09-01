@@ -54,13 +54,13 @@ namespace cpl_azure.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "SPA");
+            return Redirect("/");
         }
 
         //
         // GET: /Account/Register
 
-        [AllowAnonymous] //remove as requested in the tutorial
+        //[AllowAnonymous] //remove as requested in the tutorial
         public ActionResult Register()
         {
             return View();
@@ -70,7 +70,7 @@ namespace cpl_azure.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        [AllowAnonymous] //remove as requested in the tutorial
+        //[AllowAnonymous] //remove as requested in the tutorial
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
@@ -81,7 +81,7 @@ namespace cpl_azure.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "SPA");
+                    return RedirectToAction("Index", "AboutMe");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -280,7 +280,12 @@ namespace cpl_azure.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        //ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+
+                        OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
+                        OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
+
+                        return RedirectToLocal(returnUrl);
                     }
                 }
             }
@@ -337,7 +342,7 @@ namespace cpl_azure.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "SPA");
+                return RedirectToAction("Index", "AboutMe");
             }
         }
 

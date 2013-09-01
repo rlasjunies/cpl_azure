@@ -10,6 +10,7 @@ namespace cpl_azure
             filters.Add(new HandleErrorAttribute());
             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new RequireHttpsAttribute());
+            filters.Add(new cpl_azure.App_Start.SSLRedirector());
         }
     }
 }

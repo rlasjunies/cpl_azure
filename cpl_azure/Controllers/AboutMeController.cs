@@ -15,7 +15,7 @@ namespace cpl_azure.Controllers
 
         //
         // GET: /AboutMe/
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.AboutMes.ToList());

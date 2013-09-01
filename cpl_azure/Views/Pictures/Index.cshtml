@@ -12,34 +12,52 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PictureId)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Width)
+            @Html.DisplayNameFor(model => model.Size)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Height)
+            @Html.DisplayNameFor(model => model.url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.delete_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.thumbnail_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.savedFileName)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PictureId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PictureId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PictureId}) |
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.delete_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.thumbnail_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.savedFileName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PictureId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PictureId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.PictureId })
-            </td>
-        </tr>
+        </td>
+    </tr>
 }
 
 </table>

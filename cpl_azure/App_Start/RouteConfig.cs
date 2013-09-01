@@ -20,6 +20,12 @@ namespace cpl_azure
             );
 
             routes.MapRoute(
+                name: "StaticFiles",
+                url: "Content/uploads/{id}",
+                defaults: new { controller = "StaticFiles", action = "StaticFileDownload", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                name: "Default",
                url: "*",
                defaults: new { controller = "SPA", action = "Index", id = UrlParameter.Optional }

@@ -1,0 +1,78 @@
+﻿@model cpl_azure.Models.Pictures
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Pictures</legend>
+
+        @Html.HiddenFor(model => model.PictureId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Size)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Size)
+            @Html.ValidationMessageFor(model => model.Size)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.url)
+            @Html.ValidationMessageFor(model => model.url)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.delete_url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.delete_url)
+            @Html.ValidationMessageFor(model => model.delete_url)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.thumbnail_url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.thumbnail_url)
+            @Html.ValidationMessageFor(model => model.thumbnail_url)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.savedFileName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.savedFileName)
+            @Html.ValidationMessageFor(model => model.savedFileName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -11,7 +11,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("CPaïreLasjunies admin website", "Index", "SPA")</p>
+                    <p class="site-title">@Html.ActionLink("CPaïreLasjunies admin website", "Index", "AboutMe")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -44,8 +44,18 @@
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryUploader")
+       <!-- @Scripts.Render("~/bundles/jquery")-->
+       <!--@Scripts.Render("~/bundles/jqueryUploader")-->
+
+   <script type="text/javascript" src="/Scripts/mvcfileupload/vendor/jquery-1.9.1.min.js"></script> 
+    <script type="text/javascript" src="/Scripts/mvcfileupload/vendor/jquery-ui-1.10.2.js"></script>
+    
+    <link href="/Content/mvcfileupload/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+    <script type="text/javascript" src="/Scripts/mvcfileupload/tmpl.min.js"></script>
+    <script type="text/javascript" src="/Scripts/mvcfileupload/mvcfileupload.js"></script>
+    <script type="text/javascript" src="/Scripts/mvcfileupload/jquery.fileupload-ui.js"></script>
+    <link href="/Content/mvcfileupload/jquery.fileupload-bui.css" rel="stylesheet" type="text/css" />
+
         @RenderSection("Scripts", false)
     </body>
 </html>

@@ -57,9 +57,22 @@ namespace MvcFileUploader
                 viewDataUploadFileResult.delete_url = mvcFile.DeleteUrl;
                 
 
-                status = viewDataUploadFileResult;   
+                status = viewDataUploadFileResult;
 
-                mvcFile.File.SaveAs(fullPath);
+                if (mvcFile.File.ContentLength != 0)
+                {
+                    mvcFile.File.SaveAs(fullPath);
+                }
+                else
+                {
+                    new ViewDataUploadFileResult()
+                    {
+                        error = "FileSize is empty",
+                        name = file.FileName,
+                        size = file.ContentLength,
+                        type = file.ContentType
+                    };
+                }
             }
             catch (Exception exc)
             {

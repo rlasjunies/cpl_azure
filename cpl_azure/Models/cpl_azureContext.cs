@@ -23,6 +23,8 @@ namespace cpl_azure.Models
 
         public DbSet<AboutMe> AboutMes { get; set; }
 
+        public DbSet<Pictures> Pictures { get; set; }
+
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<Paints>().Property(p => p.PaintID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

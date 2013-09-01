@@ -184,6 +184,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SSLRedirector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutMeAPIController.cs" />
     <Compile Include="Controllers\AboutMeController.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Controllers\PaintsController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\SPAController.cs" />
+    <Compile Include="Controllers\StaticFilesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Migrations\201308280937415_2.cs" />
@@ -206,6 +208,18 @@
     <Compile Include="Migrations\201308290912425_4.cs" />
     <Compile Include="Migrations\201308290912425_4.Designer.cs">
       <DependentUpon>201308290912425_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309011153173_5.cs" />
+    <Compile Include="Migrations\201309011153173_5.Designer.cs">
+      <DependentUpon>201309011153173_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309011156209_6.cs" />
+    <Compile Include="Migrations\201309011156209_6.Designer.cs">
+      <DependentUpon>201309011156209_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309011328408_7.cs" />
+    <Compile Include="Migrations\201309011328408_7.Designer.cs">
+      <DependentUpon>201309011328408_7.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutMe.cs" />
     <Compile Include="Models\Pictures.cs" />
@@ -424,7 +438,6 @@
     <Content Include="Views\Paints\Create.cshtml" />
     <Content Include="Views\Paints\Edit.cshtml" />
     <Content Include="Views\Paints\Delete.cshtml" />
-    <Content Include="Views\Pictures\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
@@ -435,7 +448,7 @@
     <Content Include="Views\UserRoles\Create.cshtml" />
     <Content Include="Views\UserRoles\Edit.cshtml" />
     <Content Include="Views\UserRoles\Delete.cshtml" />
-    <Content Include="Views\SPA\Index.cshtml" />
+    <Content Include="Views\SPA\Index.ToDel.cshtml" />
     <Content Include="Views\AboutMe\Index.cshtml" />
     <Content Include="Views\AboutMe\Details.cshtml" />
     <Content Include="Views\AboutMe\Create.cshtml" />
@@ -444,10 +457,11 @@
     <Content Include="Views\Pictures\Create.cshtml" />
     <Content Include="Views\Pictures\_MvcFileUpload.cshtml" />
     <Content Include="Views\Shared\_MvcFileUploadLayout.cshtml" />
-    <None Include="Web.Backload.Default.config" />
-    <None Include="Web.FileUpload.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Views\Pictures\Index.cshtml" />
+    <Content Include="Views\Pictures\Details.cshtml" />
+    <Content Include="Views\Pictures\Create.ToDel.cshtml" />
+    <Content Include="Views\Pictures\Edit.cshtml" />
+    <Content Include="Views\Pictures\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -468,6 +482,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201308290912425_4.resx">
       <DependentUpon>201308290912425_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309011153173_5.resx">
+      <DependentUpon>201309011153173_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309011156209_6.resx">
+      <DependentUpon>201309011156209_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309011328408_7.resx">
+      <DependentUpon>201309011328408_7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
