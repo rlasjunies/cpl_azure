@@ -5,9 +5,7 @@
         <title>@ViewBag.Title - My ASP.NET MVC Application</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
-        <link href="/Content/mvcfileupload/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" />
         @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
         <header>
@@ -47,17 +45,7 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
-        
-
-        @Scripts.Render("~/Scripts/jquery-ui")
-        @Scripts.Render("~/Scripts/bootstrap")
-        @Scripts.Render("~/Scripts/mvcfileupload/tmpl.min.js")
-        @Scripts.Render("~/Scripts/mvcfileupload/mvcfileupload.js")
-        @Scripts.Render("~/Scripts/mvcfileupload/jquery.fileupload-ui.js")
-
-        <link href="/Content/mvcfileupload/jquery.fileupload-bui.css" rel="stylesheet" type="text/css" />
-
-        @RenderSection("PageScripts", false)
-        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jqueryUploader")
+        @RenderSection("Scripts", false)
     </body>
 </html>

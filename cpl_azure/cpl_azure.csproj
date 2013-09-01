@@ -236,20 +236,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\demos.bootstrap.styles.css" />
     <Content Include="Content\demos.jqueryui.styles.css" />
-    <Content Include="Content\FileUpload\cors\postmessage.html" />
-    <Content Include="Content\FileUpload\cors\result.html" />
-    <Content Include="Content\FileUpload\css\bootstrap\bootstrap-image-gallery.debug.css" />
-    <Content Include="Content\FileUpload\css\bootstrap\bootstrap-responsive.debug.css" />
-    <Content Include="Content\FileUpload\css\bootstrap\bootstrap.debug.css" />
-    <Content Include="Content\FileUpload\css\jquery.fileupload-ui-noscript.css" />
-    <Content Include="Content\FileUpload\css\jquery.fileupload-ui.css" />
-    <Content Include="Content\FileUpload\css\jquery.image-gallery.debug.css" />
-    <Content Include="Content\FileUpload\css\jqueryui\jquery.fileupload-jui.css" />
-    <Content Include="Content\FileUpload\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\FileUpload\img\glyphicons-halflings.png" />
-    <Content Include="Content\FileUpload\img\loading.gif" />
-    <Content Include="Content\FileUpload\img\progressbar.gif" />
-    <Content Include="Content\FileUpload\img\progressblue.gif" />
     <Content Include="Content\jquery.fileupload-ui-noscript.css" />
     <Content Include="Content\jquery.fileupload-ui.css" />
     <Content Include="Content\mvcfileupload\images\glyphicons-halflings-white.png" />
@@ -342,6 +328,8 @@
     <TypeScriptCompile Include="core\core_restAPI.ts" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
     <Content Include="libs\jquery-2.0.3.min.map" />
     <None Include="Properties\PublishProfiles\cpairelasjuniestest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\cpairelasjuniestest - Web Deploy.pubxml" />
@@ -359,40 +347,9 @@
     <Content Include="libs\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Models\paints.ts" />
     <TypeScriptCompile Include="Models\aboutMe.ts" />
-    <Content Include="Release notes.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\demos.angularjs.js" />
-    <Content Include="Scripts\demos.bootstrap.basic.js" />
-    <Content Include="Scripts\demos.bootstrap.basicplus.js" />
-    <Content Include="Scripts\demos.bootstrap.basicplusui.js" />
-    <Content Include="Scripts\demos.jqueryui.basicplusui.js" />
-    <Content Include="Scripts\FileUpload\angularjs\angular.debug.js" />
-    <Content Include="Scripts\FileUpload\backload.demo.js" />
-    <Content Include="Scripts\FileUpload\bootstrap\bootstrap-image-gallery.debug.js" />
-    <Content Include="Scripts\FileUpload\bootstrap\bootstrap.debug.js" />
-    <Content Include="Scripts\FileUpload\canvas-to-blob.debug.js" />
-    <Content Include="Scripts\FileUpload\cors\jquery.postmessage-transport.js" />
-    <Content Include="Scripts\FileUpload\cors\jquery.xdr-transport.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-angular.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-audio.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-fp.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-image.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-jui.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-process.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-ui.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-validate.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload-video.js" />
-    <Content Include="Scripts\FileUpload\jquery.fileupload.js" />
-    <Content Include="Scripts\FileUpload\jquery.iframe-transport.js" />
-    <Content Include="Scripts\FileUpload\jquery.image-gallery.debug.js" />
-    <Content Include="Scripts\FileUpload\jqueryui\jquery.fileupload-jui.js" />
-    <Content Include="Scripts\FileUpload\jqueryui\jquery.fileupload-ui.js" />
-    <Content Include="Scripts\FileUpload\jqueryui\jquery.fileupload.js" />
-    <Content Include="Scripts\FileUpload\jqueryui\jquery.ui.widget.js" />
-    <Content Include="Scripts\FileUpload\load-image.debug.js" />
-    <Content Include="Scripts\FileUpload\tmpl.debug.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
@@ -411,6 +368,14 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\mvcfileupload\jquery.fileupload-jui.js" />
+    <Content Include="Scripts\mvcfileupload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\mvcfileupload\mvcfileupload.js" />
+    <Content Include="Scripts\mvcfileupload\tmpl.min.js" />
+    <Content Include="Scripts\mvcfileupload\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\mvcfileupload\vendor\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\mvcfileupload\vendor\jquery-ui-1.10.2.js" />
+    <Content Include="Scripts\mvcfileupload\vendor\jquery.ui.widget.js" />
     <Content Include="Scripts\typings\jquerymobile\jquerymobile.d.ts" />
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
     <Content Include="Web.config" />
@@ -486,7 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\uploads\" />
+    <Folder Include="Content\Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

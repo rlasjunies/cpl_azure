@@ -139,16 +139,15 @@
 
 <script type="text/javascript">
 
-    window.on
-    // Initialize the jQuery File Upload widget:
-    $('#@(formId)').fileupload();
+    window.onload = function(){
+        // Initialize the jQuery File Upload widget:
+        $('#@(formId)').fileupload();
 
-    $('#@(formId)').fileupload('option', { 
-        maxFileSize: @Model.MaxFileSizeInBytes,
-        resizeMaxWidth: 1920,
-        resizeMaxHeight: 1200,
-        acceptFileTypes: @Model.FileTypes
-    });
-    
-
+        $('#@(formId)').fileupload('option', { 
+            maxFileSize: @Model.MaxFileSizeInBytes,
+            resizeMaxWidth: 1920,
+            resizeMaxHeight: 1200,
+            acceptFileTypes: @Model.FileTypes
+            });
+    }
 </script>
