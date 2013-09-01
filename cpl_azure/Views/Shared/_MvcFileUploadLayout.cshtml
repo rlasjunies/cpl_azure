@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="/Content/mvcfileupload/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("CPaïreLasjunies admin website", "Index", "SPA")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("About Me", "Index", "AboutMe")</li>
+                            <li>@Html.ActionLink("Nouvelles", "Index", "News")</li>
+                            <li>@Html.ActionLink("Peintures", "Index", "Paints")</li>
+                            <li>@Html.ActionLink("Images", "Index", "Pictures")</li>
+                            <li>@Html.ActionLink("Users", "Index", "User")</li>
+                            <li>@Html.ActionLink("Roles", "Index", "UserRoles")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+        @Scripts.Render("~/Scripts/jquery-ui")
+        @Scripts.Render("~/Scripts/jqueryUploader")
+        @Scripts.Render("~/Scripts/jqueryUploaderIframe")
+        @Scripts.Render("~/Scripts/bootstrap")
+        <script type="text/javascript" src="/Scripts/mvcfileupload/tmpl.min.js"></script>
+        <script type="text/javascript" src="/Scripts/mvcfileupload/mvcfileupload.js"></script>
+        <script type="text/javascript" src="/Scripts/mvcfileupload/jquery.fileupload-ui.js"></script>
+
+        <link href="/Content/mvcfileupload/jquery.fileupload-bui.css" rel="stylesheet" type="text/css" />
+
+        @RenderSection("PageScripts", false)
+    </body>
+</html>

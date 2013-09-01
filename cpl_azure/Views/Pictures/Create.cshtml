@@ -1,0 +1,26 @@
+﻿@using MvcFileUploader.HtmlHelper
+@using MvcFileUploader.Models
+@{
+    ViewBag.Title = "Upload pictures";
+    //setting layout based on ui    
+    Layout = "~/Views/Shared/_MvcFileUploadLayout.cshtml";    
+}
+
+    <div class="well">
+        <legend>Upload Inline</legend>
+        @(
+        Html.MvcFileUpload()
+        .UploadAt(Url.Action("UploadFile"))
+        //.UIStyle(ui)
+        .WithFileTypes(@"/(\.|\/)(jpe?g|png)$/i")
+        .WithMaxFileSize(5000000)
+        .AddFormField("entityId", "1234")
+        .RenderInline("_MvcFileupload")
+        )
+
+    </div>
+        
+    <p>
+        @Html.ActionLink("Back to list",  "Index")
+    </p>
+}

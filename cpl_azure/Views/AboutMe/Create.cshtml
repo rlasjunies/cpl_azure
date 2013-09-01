@@ -1,0 +1,37 @@
+﻿@model cpl_azure.Models.AboutMe
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AboutMe</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Biographie)
+        </div>
+        <div class="editor-field">
+            <!--@Html.EditorFor(model => model.Biographie)-->
+            @Html.TextAreaFor(model => model.Biographie, new { @class="large-textarea;", @cols="80", @rows="10" })
+            @Html.ValidationMessageFor(model => model.Biographie)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
