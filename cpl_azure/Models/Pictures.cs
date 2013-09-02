@@ -8,7 +8,8 @@ namespace cpl_azure.Models
     public class Pictures
     {
         [Key]
-        public Guid PictureId { get; set; }
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int PictureId { get; set; }
 
         [Display(Name = "Nom")]
         public string Name { get; set; }
@@ -22,5 +23,7 @@ namespace cpl_azure.Models
         public string thumbnail_url { get; set; }
         [Display(Name = "Nom de sauvegarde")]
         public string savedFileName { get; set; }
+        [Display(Name = "Path&Name de sauvegarde")]
+        public string FullFileName { get; set; }
     }
 }

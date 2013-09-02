@@ -15,19 +15,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.delete_url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.thumbnail_url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.savedFileName)
+            Image
         </th>
         <th></th>
     </tr>
@@ -38,19 +26,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.delete_url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.thumbnail_url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.savedFileName)
+            <img src="@item.url?width=80&amp;height=80">            
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PictureId }) |

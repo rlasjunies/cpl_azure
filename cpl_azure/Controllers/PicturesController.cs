@@ -24,7 +24,7 @@ namespace cpl_azure.Controllers
         //
         // GET: /Pictures/Details/5
         [Authorize(Roles = "picturesAll")]
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
             Pictures pictures = db.Pictures.Find(id);
             if (pictures == null)
@@ -62,7 +62,7 @@ namespace cpl_azure.Controllers
         //
         // GET: /Pictures/Edit/5
         [Authorize(Roles = "picturesAll")]
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
             Pictures pictures = db.Pictures.Find(id);
             if (pictures == null)
@@ -91,7 +91,7 @@ namespace cpl_azure.Controllers
         //
         // GET: /Pictures/Delete/5
         [Authorize(Roles = "picturesAll")]
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
             Pictures pictures = db.Pictures.Find(id);
             if (pictures == null)
@@ -106,7 +106,7 @@ namespace cpl_azure.Controllers
         [Authorize(Roles = "picturesAll")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(int id)
         {
             //Pictures pictures = db.Pictures.Find(id);
             //db.Pictures.Remove(pictures);
@@ -136,7 +136,7 @@ namespace cpl_azure.Controllers
 
                     //overriding defaults
                     //x.FileName = Guid.NewGuid().ToString(); //Request.Files[i].FileName;// default is filename suffixed with filetimestamp
-                    x.FileName = Guid.NewGuid().ToString() + Request.Files[i].ContentType;
+                    //x.FileName = Guid.NewGuid().ToString() + Request.Files[i].ContentType;
                     x.ThrowExceptions = true;//default is false, if false exception message is set in error property
                 });
 
@@ -153,7 +153,7 @@ namespace cpl_azure.Controllers
             statuses.ForEach(x => x.thumbnail_url = x.url + "?width=80&height=80"); // uses ImageResizer httpmodule to resize images from this url
 
             //setting custom download url instead of direct url to file which is default
-            statuses.ForEach(x => x.url = Url.Action("DownloadFile", new { fileUrl = x.url, mimetype = x.type }));
+            //statuses.ForEach(x => x.url = Url.Action("DownloadFile", new { fileUrl = x.url, mimetype = x.type }));
 
             foreach ( var status in statuses)
             {
@@ -162,13 +162,14 @@ namespace cpl_azure.Controllers
                 {
                     var picture = new Models.Pictures()
                     {
-                        PictureId = Guid.Parse(status.SavedFileName),
+                        //PictureId = status.SavedFileName,
                         Name = status.name,
                         delete_url = status.delete_url,
                         savedFileName = status.SavedFileName,
                         Size = status.size,
                         thumbnail_url = status.thumbnail_url,
-                        url = status.url
+                        url = status.url,
+                        FullFileName = status.FullPath
                     };
                     db.Pictures.Add(picture);
                     db.SaveChanges();
@@ -198,20 +199,26 @@ namespace cpl_azure.Controllers
         //here i am receving the extra info injected
         [HttpPost] // should accept only post
         [Authorize(Roles = "picturesAll")]
-        public ActionResult DeleteFile(int? entityId, Guid Id)
+        public ActionResult DeleteFile(int? entityId, string fileUrl)
         {
             //var filePath = Server.MapPath("~" + fileUrl);
 
             //if (System.IO.File.Exists(filePath))
             //    System.IO.File.Delete(filePath);
-
-            this.DeleteFileAndRecord(Id);
-
-            return new HttpStatusCodeResult(200); // trigger success
+            Pictures picture = db.Pictures.Where(p => p.url == fileUrl).SingleOrDefault();
+            //Pictures picture = db.Pictures.Find(Id);
+            if (picture != null)
+            {
+                return this.DeleteFileAndRecord(picture.PictureId);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
+            }
         }
 
         [Authorize(Roles = "picturesAll")]
-        private void DeleteFileAndRecord(Guid Id)
+        private ActionResult DeleteFileAndRecord(int Id)
         {
 
             // delete the record
@@ -225,10 +232,19 @@ namespace cpl_azure.Controllers
                 db.SaveChanges();
 
                 //delete the file
-                var filePath = Server.MapPath("~/Content/uploads/" + Id);
+                var filePath = Server.MapPath("~/Content/uploads/" + picture.savedFileName);
 
                 if (System.IO.File.Exists(filePath))
+                {
                     System.IO.File.Delete(filePath);
+                    return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
+                }
+
+                return new HttpStatusCodeResult(200); // trigger success
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
             }
             
         }

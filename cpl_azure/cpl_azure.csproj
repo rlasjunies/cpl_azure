@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.3.3\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc">
+      <HintPath>..\packages\ImageResizer.Mvc.3.3.3\lib\ImageResizer.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -220,6 +226,18 @@
     <Compile Include="Migrations\201309011328408_7.cs" />
     <Compile Include="Migrations\201309011328408_7.Designer.cs">
       <DependentUpon>201309011328408_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309021941069_8.cs" />
+    <Compile Include="Migrations\201309021941069_8.Designer.cs">
+      <DependentUpon>201309021941069_8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309022008392_9.cs" />
+    <Compile Include="Migrations\201309022008392_9.Designer.cs">
+      <DependentUpon>201309022008392_9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309022032097_10.cs" />
+    <Compile Include="Migrations\201309022032097_10.Designer.cs">
+      <DependentUpon>201309022032097_10.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutMe.cs" />
     <Compile Include="Models\Pictures.cs" />
@@ -491,6 +509,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309011328408_7.resx">
       <DependentUpon>201309011328408_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309021941069_8.resx">
+      <DependentUpon>201309021941069_8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309022008392_9.resx">
+      <DependentUpon>201309022008392_9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309022032097_10.resx">
+      <DependentUpon>201309022032097_10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
