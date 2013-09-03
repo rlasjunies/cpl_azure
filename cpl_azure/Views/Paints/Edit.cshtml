@@ -16,6 +16,14 @@
         @Html.HiddenFor(model => model.PaintId)
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Order)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Order)
+            @Html.ValidationMessageFor(model => model.Order)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
@@ -43,8 +51,19 @@
             @Html.LabelFor(model => model.Picture)
         </div>
         <div class="editor-field">
+            @{
+            <img src="model.Picture?width=80&amp;height=80">
+            }
             @Html.EditorFor(model => model.Picture)
             @Html.ValidationMessageFor(model => model.Picture)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Size)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Size)
+            @Html.ValidationMessageFor(model => model.Size)
         </div>
 
         <p>

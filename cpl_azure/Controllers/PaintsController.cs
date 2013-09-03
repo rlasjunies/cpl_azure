@@ -18,13 +18,13 @@ namespace cpl_azure.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Paints.ToList());
+            return View(db.Paints.ToList().OrderBy(p => p.Order));
         }
 
         //
         // GET: /Paints/Details/5
 
-        public ActionResult Details(string id = null)
+        public ActionResult Details(int id = 0)
         {
             Paints paints = db.Paints.Find(id);
             if (paints == null)
@@ -62,7 +62,7 @@ namespace cpl_azure.Controllers
         //
         // GET: /Paints/Edit/5
 
-        public ActionResult Edit(string id = null)
+        public ActionResult Edit(int id = 0)
         {
             Paints paints = db.Paints.Find(id);
             if (paints == null)
@@ -91,7 +91,7 @@ namespace cpl_azure.Controllers
         //
         // GET: /Paints/Delete/5
 
-        public ActionResult Delete(string id = null)
+        public ActionResult Delete(int id = 0)
         {
             Paints paints = db.Paints.Find(id);
             if (paints == null)
@@ -106,7 +106,7 @@ namespace cpl_azure.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Paints paints = db.Paints.Find(id);
             db.Paints.Remove(paints);

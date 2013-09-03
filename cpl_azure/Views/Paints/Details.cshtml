@@ -10,6 +10,13 @@
     <legend>Paints</legend>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Order)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Order)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
@@ -34,8 +41,20 @@
          @Html.DisplayNameFor(model => model.Picture)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Picture)
+        
+                    @{
+            <img src="model.Picture?width=80&amp;height=80">
+            }
+            @Html.DisplayFor(model => model.Picture)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Size)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Size)
+    </div>
+
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.PaintId }) |

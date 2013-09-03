@@ -12,19 +12,27 @@ namespace cpl_azure.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
-        [Display(Name = "Name")]
+        [Display(Name = "Nom")]
         public string Name { get; set; }
 
         [Display(Name = "Description")]
         [StringLength(255, ErrorMessage = "La chaine ne pas dépasser {0} caractère")]
         public string Description { get; set; }
 
-        [Display(Name = "Year")]
+        [Display(Name = "Année")]
         [StringLength(4, ErrorMessage = "La chaine doit être au format YYYY", MinimumLength = 4)]
         public string Year { get; set; }
 
-        [Display(Name = "Picture")]
+        [Display(Name = "Image")]
         [StringLength(255, ErrorMessage = "La chaine ne pas dépasser {0} caractère")]
         public string Picture { get; set; }
+
+        [Display(Name = "Taille")]
+        [StringLength(255, ErrorMessage = "La chaine ne pas dépasser {0} caractère")]
+        public string Size { get; set; }
+
+        [Display(Name = "Ordre")]
+        public int Order { get; set; }
+
     }
 }

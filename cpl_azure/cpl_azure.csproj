@@ -239,6 +239,14 @@
     <Compile Include="Migrations\201309022032097_10.Designer.cs">
       <DependentUpon>201309022032097_10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309032021506_11.cs" />
+    <Compile Include="Migrations\201309032021506_11.Designer.cs">
+      <DependentUpon>201309032021506_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309032026263_12.cs" />
+    <Compile Include="Migrations\201309032026263_12.Designer.cs">
+      <DependentUpon>201309032026263_12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AboutMe.cs" />
     <Compile Include="Models\Pictures.cs" />
     <Compile Include="Models\webpages_UsersInRoles.cs" />
@@ -518,6 +526,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309022032097_10.resx">
       <DependentUpon>201309022032097_10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309032021506_11.resx">
+      <DependentUpon>201309032021506_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309032026263_12.resx">
+      <DependentUpon>201309032026263_12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
