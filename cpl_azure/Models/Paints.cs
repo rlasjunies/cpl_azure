@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
+using T4TS;
 
 namespace cpl_azure.Models
 {
+    [TypeScriptInterfaceAttribute(Module = "cpl_azure")]
     public class Paints
     {
         [Key]

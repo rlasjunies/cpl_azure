@@ -40,11 +40,9 @@
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Picture)
     </div>
-    <div class="display-field">
-        
-                    @{
-            <img src="model.Picture?width=80&amp;height=80">
-            }
+    <div class="display-field">         
+            <img src="@Model.Picture?width=80&amp;height=80">
+           
             @Html.DisplayFor(model => model.Picture)
     </div>
 

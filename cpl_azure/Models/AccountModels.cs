@@ -19,7 +19,7 @@ namespace cpl_azure.Models
         public DbSet<webpages_Roles> webpages_Roles { get; set; }
         public DbSet<webpages_UsersInRoles> webpages_UsersInRoles { get; set; }
     }
-
+    
     [Table("UserProfile")]
     public class UserProfile
     {

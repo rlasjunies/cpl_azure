@@ -121,6 +121,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="T4TS.Attributes">
+      <HintPath>..\packages\T4TS.1.3\lib\net20\T4TS.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -269,6 +272,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="T4TS.d.ts">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T4TS.tt</DependentUpon>
+    </Content>
+    <Content Include="T4TS.tt.settings.t4" />
+    <Content Include="T4TS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>T4TS.d.ts</LastGenOutput>
+    </Content>
     <TypeScriptCompile Include="app.ts" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -539,6 +552,9 @@
       <Project>{10bc1034-bd5c-4fbf-8e3a-05ddf07c4269}</Project>
       <Name>MvcFileUploader</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
