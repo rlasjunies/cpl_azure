@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
+using System.Web.Mvc;
 using T4TS;
 
 namespace cpl_azure.Models
@@ -22,8 +23,7 @@ namespace cpl_azure.Models
         public string Summary { get; set; }
 
         [Display(Name = "Contenu")]
-        [StringLength(255, ErrorMessage = "La chaine ne pas dépasser {0} caractère")]
-        //TODO replace by blob/binary
+        [AllowHtml]
         public string Content { get; set; }
 
     }

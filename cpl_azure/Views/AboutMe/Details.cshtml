@@ -13,7 +13,7 @@
          @Html.DisplayNameFor(model => model.Biographie)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Biographie)
+        @Html.Raw(HttpUtility.HtmlDecode(Model.Biographie))
     </div>
 </fieldset>
 <p>

@@ -27,7 +27,8 @@
          @Html.DisplayNameFor(model => model.Content)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Content)
+        <!--@Html.DisplayFor(model => model.Content)-->
+        @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
     </div>
 </fieldset>
 <p>

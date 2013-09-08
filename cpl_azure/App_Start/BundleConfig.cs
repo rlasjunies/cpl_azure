@@ -17,10 +17,13 @@ namespace cpl_azure
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryUploader").Include(
-                    "~/Scripts/jquery.fileupload.js",
-                    "~/Scripts/mvcfileupload/tmpl.min.js",
-                    "~/Scripts/mvcfileupload/mvcfileupload.js",
-                    "~/Scripts/mvcfileupload/jquery.fileupload-ui.js"));
+                        "~/Scripts/jquery.fileupload.js",
+                        "~/Scripts/mvcfileupload/tmpl.min.js",
+                        "~/Scripts/mvcfileupload/mvcfileupload.js",
+                        "~/Scripts/mvcfileupload/jquery.fileupload-ui.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/CKEditor").Include(
+                        "~/libs/ckeditor/ckeditor.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/site.css",

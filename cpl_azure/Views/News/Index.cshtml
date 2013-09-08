@@ -32,7 +32,8 @@
             @Html.DisplayFor(modelItem => item.Summary)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Content)
+            <!--@Html.DisplayFor(modelItem => item.Content)-->
+            @Html.Raw(HttpUtility.HtmlDecode(item.Content))
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |

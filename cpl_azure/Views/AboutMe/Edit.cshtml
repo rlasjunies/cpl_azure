@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.Biographie)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Biographie, new { @class="large-textarea;", @cols="80", @rows="10" })
+            @Html.TextAreaFor(model => model.Biographie, new { @id="ckeditor", @class="large-textarea;", @cols="80", @rows="10" })
             @Html.ValidationMessageFor(model => model.Biographie)
         </div>
 
@@ -35,4 +35,10 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/CKEditor")
+
+    <script lang="text/javascript">
+        CKEDITOR.replace('ckeditor');
+    </script>
+
 }
