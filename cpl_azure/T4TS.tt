@@ -168,7 +168,7 @@ public class InterfaceOutputAppender : OutputAppender<TypeScriptInterface>
             }
             else
             {
-                Output.Append("module ");
+                Output.Append("declare module ");
                 Output.Append(module.QualifiedName);
                 Output.AppendLine(" {");
             }
