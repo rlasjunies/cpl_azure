@@ -55,6 +55,9 @@
     @Scripts.Render("~/bundles/CKEditor")
 
     <script lang="text/javascript">
-        CKEDITOR.replace('ckeditor');
+        CKEDITOR.replace('ckeditor', {
+            fullPage: true,
+            allowedContent: true
+        });
     </script>
 }

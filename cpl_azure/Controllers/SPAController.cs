@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace cpl_azure.Controllers
 {
-    public class SPAController : Controller
+    public class SPAControllerTodel : Controller
     {
         //
         // GET: /SPA/
