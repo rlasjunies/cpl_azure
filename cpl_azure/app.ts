@@ -3,7 +3,7 @@
 /// <reference path="core/core_restAPI.ts" />
 /// <reference path="libs/typings/jquerymobile/jquerymobile.d.ts" />
 /// <reference path="libs/typings/jquery/jquery.d.ts" />
-/// <reference path="models/paints.ts" />
+/// <reference path="T4TS.d.ts"/>
 
 class cmdLoadPaints implements core.pubsub.IPubSubMsg { };
 class evtPaintsLoaded implements core.pubsub.IPubSubMsg { };
