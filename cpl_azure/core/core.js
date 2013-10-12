@@ -1,8 +1,13 @@
+/// <reference path="core_restAPI.ts" />
+/// <reference path="core_pubsub.ts" />
 var gApp;
 var core;
 (function (core) {
     var App = (function () {
+        //constructor(w: Window, debug?: Boolean ) {
         function App(site) {
+            //if (debug == null) { debug = false };
+            //this._debug = debug;
             this.PubSub = new core.pubsub.PubSub();
             this.site = site;
         }
@@ -22,4 +27,3 @@ var core;
     })();
     core.Logger = Logger;
 })(core || (core = {}));
-//# sourceMappingURL=core.js.map

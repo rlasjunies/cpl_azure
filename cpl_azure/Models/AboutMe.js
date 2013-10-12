@@ -1,6 +1,11 @@
+/// <reference path="../core/core.ts" />
+/// <reference path="../core/core_restAPI.ts" />
+/// <reference path="../core/core_pubsub.ts" />
+/// <reference path="../libs/typings/jquery/jquery.d.ts"/>
 var models;
 (function (models) {
     (function (aboutMes) {
+        // PubSub Messages
         var evtBiographyGetted = (function () {
             function evtBiographyGetted(status, value, error) {
                 this.status = status;
@@ -11,6 +16,7 @@ var models;
         })();
         aboutMes.evtBiographyGetted = evtBiographyGetted;
 
+        //Entities stream
         var AboutMes = (function () {
             function AboutMes() {
                 this._root = "api/AboutMeAPI";
@@ -20,7 +26,7 @@ var models;
                     url: this._root,
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
-                    dataType: "json",
+                    dataType: "jsonp",
                     async: true,
                     error: function (xhr, status, error) {
                         gApp.PubSub.publish(new evtBiographyGetted(core.misc.enumEntityStatus.failed, null, new Error(error.toString())));
@@ -38,4 +44,3 @@ var models;
     })(models.aboutMes || (models.aboutMes = {}));
     var aboutMes = models.aboutMes;
 })(models || (models = {}));
-//# sourceMappingURL=aboutMe.js.map

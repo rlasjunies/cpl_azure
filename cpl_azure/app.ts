@@ -49,36 +49,52 @@ window.onload = () => {
                 alert( "error: loading the paintings data!!:" + evt.error );
             } else {
                 //alert( "paintings data Loaded!!:" + evt.value );
-                var li: any;
-                evt.value.forEach(
-                    function ( key, val ) {
-                        li = $( '#listPaints' ).append( "<li id='" + key.Name + "'><h3>" + key.Name + "</h3></li>" );
-                        li.on( 'click',
-                            function () {
-                                alert( 'item ' + key.Name + ' pressed' );
-                            }
-                        );
-                    }
-                    );
-                $( 'listPaints' ).listview( "refresh" );
+                //evt.value.forEach(
+                //    function ( key, val ) {
+                //        var li: JQuery;                        
+                //        li = $( '#listPaints' ).append( "<li><a href='#' class='painting'><img src='" + key.Picture + "'/></a></li>" );
+                //        li.click(
+                //            function () {
+                //                alert( 'item ' + key.Name + ' pressed' );
+                //            }
+                //        );
+
+                //        //li.on( 'click',
+                //        //    function () {
+                //        //        alert( 'item ' + key.Name + ' pressed' );
+                //        //    }
+                //        //);
+                //    }
+                //    );
+
+                var items = [];
+
+                jQuery.each<cpla.models.Paints>( evt.value, function ( key: number, val: cpla.models.Paints ) {
+                    items.push( "<li><a href='#' class='painting'><img src='" + val.Picture + "'/> <h2>" + val.Name + "</h2><p>" + val.Description +"</p></li>" );
+                });
+
+                var list = $("#listPaints");
+                list.append( items );
+                list.bind( 'pageinit', function () {
+                    list.listview( 'refresh' );
+                });                   
+                
             }
+        $.mobile.loading( 'hide' );
         });
 
     gApp.PubSub.subscribe(new cmdJumpToPage_Paints, function (cmdJumpToPage_Paints) {
-            $.mobile.changePage("index.html#pagePaints", {
-                transition: "pop"
-            })
+        $.mobile.changePage( "index.html#pagePaints" );
         });
 
     gApp.PubSub.subscribe(new cmdJumpToPage_AboutMe, function (cmdJumpToPage_AboutMe) {
-            $.mobile.changePage("index.html#pageMe", {
-                transition: "pop"
-            })
+        $.mobile.changePage( "index.html#pageMe" );
         });
 
     gApp.PubSub.subscribe(new cmdLoadBiography, function (cmdLoadBiography) {
         var bio: models.aboutMes.AboutMes;
         bio = new models.aboutMes.AboutMes();
+        $.mobile.loading( 'show' );
         bio.get();
     });
 

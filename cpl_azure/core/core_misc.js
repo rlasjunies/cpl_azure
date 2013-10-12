@@ -14,6 +14,9 @@ var core;
         })(misc.eLogSeverity || (misc.eLogSeverity = {}));
         var eLogSeverity = misc.eLogSeverity;
 
+        /* Returns the class name of the argument or undefined if
+        it's not a valid JavaScript object.
+        */
         function getObjectClass(obj) {
             if (obj && obj.constructor && obj.constructor.toString) {
                 var arr = obj.constructor.toString().match(/function\s*(\w+)/);
@@ -39,4 +42,3 @@ var core;
     })(core.misc || (core.misc = {}));
     var misc = core.misc;
 })(core || (core = {}));
-//# sourceMappingURL=core_misc.js.map

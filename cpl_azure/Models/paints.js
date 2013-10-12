@@ -1,6 +1,12 @@
+/// <reference path="../core/core.ts" />
+/// <reference path="../core/core_restAPI.ts" />
+/// <reference path="../core/core_pubsub.ts" />
+/// <reference path="../libs/typings/jquery/jquery.d.ts"/>
+/// <reference path="../T4TS.d.ts"/>
 var models;
 (function (models) {
     (function (paints) {
+        // PubSub Messages
         var evtPaintGetted = (function () {
             function evtPaintGetted(status, value, error) {
                 this.status = status;
@@ -51,6 +57,7 @@ var models;
         })();
         paints.evtPaintDeleted = evtPaintDeleted;
 
+        //Entities stream
         var Paints = (function () {
             function Paints() {
                 this._root = "api/PaintsAPI";
@@ -62,6 +69,8 @@ var models;
                             gApp.PubSub.publish(new evtPaintGetted(core.misc.enumEntityStatus.failed, null, result.error()));
                             break;
                         case rest.enumRestStatus.success:
+                            //succeed?
+                            //check the returned value and collect the ID
                             var serviceReturn = result.response();
 
                             if (serviceReturn.status === "success") {
@@ -80,9 +89,10 @@ var models;
                     url: "/api/PaintsAPI",
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
-                    dataType: "json",
+                    dataType: "jsonp",
                     async: true,
                     error: function (xhr, status, error) {
+                        //alert("test" + error);
                         gApp.PubSub.publish(new evtPaintsGetted(core.misc.enumEntityStatus.failed, null, new Error(error.toString())));
                     },
                     success: function (data) {
@@ -102,6 +112,8 @@ var models;
                             gApp.PubSub.publish(new evtPaintNewed(core.misc.enumEntityStatus.failed, null, result.error()));
                             break;
                         case rest.enumRestStatus.success:
+                            //succeed?
+                            //check the returned value and collect the ID
                             var serviceReturn = result.response();
 
                             if (serviceReturn.status === "success") {
@@ -124,6 +136,8 @@ var models;
                             gApp.PubSub.publish(new evtPaintUpdated(core.misc.enumEntityStatus.failed, null, result.error()));
                             break;
                         case rest.enumRestStatus.success:
+                            //succeed?
+                            //check the returned value and collect the ID
                             var serviceReturn = result.response();
 
                             if (serviceReturn.status === "success") {
@@ -144,6 +158,8 @@ var models;
                             gApp.PubSub.publish(new evtPaintDeleted(core.misc.enumEntityStatus.failed, null, result.error()));
                             break;
                         case rest.enumRestStatus.success:
+                            //succeed?
+                            //check the returned value and collect the ID
                             core.Logger.log(JSON.stringify(result));
                             var serviceReturn = result.response();
 
@@ -161,6 +177,7 @@ var models;
         })();
         paints.Paints = Paints;
 
+        //entity data
         var Paint = (function () {
             function Paint(id, Name, Year, Description, Picture) {
                 this.id = id;
@@ -175,4 +192,3 @@ var models;
     })(models.paints || (models.paints = {}));
     var paints = models.paints;
 })(models || (models = {}));
-//# sourceMappingURL=paints.js.map

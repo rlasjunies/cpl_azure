@@ -2,6 +2,8 @@
 /// <reference path="../core/core_restAPI.ts" />
 /// <reference path="../core/core_pubsub.ts" />
 /// <reference path="../libs/typings/jquery/jquery.d.ts"/>
+/// <reference path="../T4TS.d.ts"/>
+
 module models {
     export module paints {
         // PubSub Messages
@@ -10,7 +12,7 @@ module models {
         }
         
         export class evtPaintsGetted implements core.pubsub.IPubSubMsg, core.pubsub.IPubSubEvt_FunctionReturn {
-            constructor(public status: core.misc.enumEntityStatus, public value: any, public error: Error) { }
+            constructor(public status: core.misc.enumEntityStatus, public value: cpla.models.Paints[], public error: Error) { }
         }
 
         export class evtPaintNewed implements core.pubsub.IPubSubMsg, core.pubsub.IPubSubEvt_FunctionReturn {
@@ -56,35 +58,24 @@ module models {
 
             getAll() {
                 var JQryAjxSetting: JQueryAjaxSettings = {
-                    //url: "http://localhost:44300/api/PaintsAPI",
                     url: "/api/PaintsAPI",
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
-                    dataType: "json",
+                    dataType: "jsonp",
                     async: true,
                     error: function (xhr, status, error) {
                         //alert("test" + error);
                         gApp.PubSub.publish(new evtPaintsGetted( core.misc.enumEntityStatus.failed, null, new Error(error.toString())));
                     },
-                    success: function (data) {
-                        //alert("test" + data);
-                        //var serviceReturn = data.response();
-                        
-                        //if (serviceReturn.status === "success") {
+                    success: function ( data: cpla.models.Paints[]) {
                             gApp.PubSub.publish(new evtPaintsGetted(core.misc.enumEntityStatus.success,
                                 data,
                                 null)
                                 );
-                        //} else {
-                        //    var sErr: string = "status: Failed - :" + (JSON.stringify(serviceReturn));
-                        //    gApp.PubSub.publish(new evtPaintsGetted(core.misc.enumEntityStatus.failed, null, new Error(sErr)));
-                        //}
                     },
                     jsonpCallback: 'itDoesntMatterNotAFunction',
                 };
                 $.ajax(JQryAjxSetting);
-
-
         }
 
             new(post: Paint) {

@@ -19,7 +19,7 @@ module models {
                     url: this._root,
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
-                    dataType: "json",
+                    dataType: "jsonp",
                     async: true,
                     error: function (xhr, status, error) {
                         gApp.PubSub.publish(new evtBiographyGetted(core.misc.enumEntityStatus.failed, null, new Error(error.toString())));

@@ -1,3 +1,57 @@
+//TODO compare with the usage of request.JSON (jQuery)
+//new Request.JSON(
+//{
+//    url: '/list.json',
+//    onSuccess: function ( json ) {
+//        json.list.each( function ( key, val ) {
+//            new Element( 'LI' )
+//                .set( 'text', val )
+//                .addEvent( 'click', function () {
+//                    alert( 'item ' + key + ' pressed' );
+//                    // alert('item '+val.id+' pressed');
+//                    // considering val is an object instead of raw string, this way you must change set to something like this set('text', val.text)
+//                } )
+//                .inject( $( 'list' ) );
+//            // any other thing you want add to your list item
+//        } );
+//    }
+//} ).get();
+//<ul id = "list" > < / ul >
+//
+// Another way to connect using jQuery
+//class Ajax {
+//    url: string;
+//    xmlData: string;
+//    mode: bool;
+//    response: string;
+//    objHttpReq: any;
+//    readyState: number;
+//    status: number;
+//    responseText: string;
+//    constructor(postUrl: string, postXml: string, postMode: bool) {
+//        this.url = postUrl;
+//        this.xmlData = postXml;
+//        this.mode = postMode;
+//        this.objHttpReq = new XMLHttpRequest();
+//        this.objHttpReq.mode = this.mode;
+//        this.objHttpReq.onreadystatechange = this.OnRStateChange;
+//        this.objHttpReq.open("Post", this.url, this.mode);
+//        this.objHttpReq.send(this.xmlData);
+//    }
+//    OnRStateChange() {
+//        if (this.readyState == 4 && this.status == 200)
+//        //here this refers to Ajax
+//        {
+//            //alert(xmlhttp.status);
+//            if (this.mode == false) {
+//                alert(this.responseText);
+//            }
+//            else {
+//                alert(this.responseText);
+//            }
+//        }
+//    }
+//}
 var rest;
 (function (rest) {
     (function (enumRestStatus) {
@@ -56,7 +110,11 @@ var rest;
                 };
 
                 if (postData) {
+                    //if ( typeof ( postData ) === "string" ) {
                     xhr.send(JSON.stringify(postData));
+                    //} else {
+                    //    xhr.send( postData );
+                    //}
                 } else {
                     xhr.send();
                 }
@@ -92,4 +150,3 @@ var rest;
     }
     rest.eRequestVerb_Str = eRequestVerb_Str;
 })(rest || (rest = {}));
-//# sourceMappingURL=core_restAPI.js.map

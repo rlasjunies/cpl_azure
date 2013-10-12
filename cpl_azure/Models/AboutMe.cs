@@ -6,7 +6,7 @@ using T4TS;
 
 namespace cpl_azure.Models
 {
-    [TypeScriptInterfaceAttribute(Module = "cpl_azure")]
+    [TypeScriptInterfaceAttribute(Module = "cpla.models")]
     public class AboutMe
     {
         [Key]
